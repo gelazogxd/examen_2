@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block title %} LIST STADIUMS {% endblock title %}
+
+{% block content %}
+
+
+    <a href="{% url 'core:create1' %}" class="btn btn-outline-success form-control">Add a New Stadium</a>
+    <h1>Listado de Estadios</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>Codigo de estadio</th>
+            <th>Nombre de estadio</th>
+            <th>Descripcion del estadio</th>
+            <th></th>
+
+        </thead>
+        <tbody>
+            {% for stadiums in stadiums %}  <!-- Cambiado de "Stadium" a "stadiums" -->
+                <tr>
+                    <td>{{ stadiums.num }}</td>
+                    <td>{{ stadiums.nombre }}</td>
+                    <td>{{ stadiums.description }}</td>
+                    <td><a href="{% url 'core:detailone' stadiums.num %}" class="btn btn-outline-info">Detalles</a></td>
+                    <td><a href="{% url 'core:Update1' stadiums.num %}" class="btn btn-outline-warning">Actualizar</a></td>
+                    <td><a href="{% url 'core:delete1' stadiums.num %}" class="btn btn-outline-danger">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+   
+{% endblock content %}
+
+

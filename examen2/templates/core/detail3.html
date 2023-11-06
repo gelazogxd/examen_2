@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+  DETAIL City
+{% endblock title %}
+
+
+{% block content %}
+<h1>Detalles de la Ciudad</h1>
+  <p>Ciudad: {{ City.ciudad }}</p>
+  <a href="{% url 'core:list3' %}" class="btn btn-outline-warning">Volver</a>
+{% endblock content %}

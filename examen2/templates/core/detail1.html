@@ -1,0 +1,50 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+  DETAIL GRANTGOAL VIEW
+{% endblock title %}
+
+
+{% block content %}
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            {{ object.gg_title }}
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the grantgoal: {{ object.gg_title }} .</strong> <br>
+          Grantgoal Description: {{ object.description }}
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Date Data
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the timestamp {{ object.timestamp }} to grantgoal {{ object.gg_title }} </strong> with Duration {{ object.days_duration }} days, The Deadline grantgoal is: {{ object.final_date }}
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Status Grant Goal
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the status {{ object.status }} for the {{ object.gg_title }} </strong> Its state is: {{ object.state }}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <a href="{% url 'core:list1' %}">back to list</a>
+{% endblock content %}

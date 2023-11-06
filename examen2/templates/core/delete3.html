@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+  Eliminar Ciudad
+{% endblock title %}
+
+{% block content %}
+<h1>Eliminar Ciudad</h1>
+<p>¿Estás seguro de que quieres eliminar la ciudad "{{ City.ciudad }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-outline-danger">Sí, eliminar</button>
+  <a href="{% url 'core:list3' %}" class="btn btn-outline-warning">Cancelar</a>
+</form>
+{% endblock content %}

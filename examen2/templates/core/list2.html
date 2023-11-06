@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Lista de equipos {% endblock title %}
+
+{% block content %}
+
+
+    <a href="{% url 'core:create2' %}" class="btn btn-outline-success form-control">Anadir nuevo equipo</a>
+    <h1>Listado de Equipos</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Número</th>
+      <th>Nombre del equipo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for Teamm in Team %}
+      <tr>
+        <td>{{ Teamm.codigo }}</td>
+        <td>{{ Teamm.equipo }}</td>
+        <td>
+          <a href="{% url 'core:detailtwo' Teamm.codigo %}" class="btn btn-outline-info">Detalles</a>
+          <a href="{% url 'core:Update2' Teamm.codigo %}" class="btn btn-outline-warning">Actualizar</a>
+          <a href="{% url 'core:delete2' Teamm.codigo %}" class="btn btn-outline-danger">Eliminar</a>
+      </td>
+      
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    
+{% endblock content %}
+

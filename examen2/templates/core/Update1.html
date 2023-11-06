@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+  Actualizar Estadio
+{% endblock title %}
+
+{% block content %}
+    <form action="" method="post" class="form">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+        <a href="{% url 'core:list1' %}" class="btn btn-outline-warning">Cancelar</a>
+    </form>
+{% endblock content %}

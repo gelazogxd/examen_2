@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+  Actualziar Ciudades
+{% endblock title %}
+
+{% block content %}
+<h1>Actualizar Ciudad</h1>
+<form method="post" class="form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-outline-primary">Actualizar Ciudad</button>
+  <a href="{% url 'core:list3' %}" class="btn btn-outline-warning">Cancelar</a>
+</form>
+{% endblock content %}

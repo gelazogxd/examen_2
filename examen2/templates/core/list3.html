@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Lista de ciudades {% endblock title %}
+
+{% block content %}
+
+
+    <a href="{% url 'core:create3' %}" class="btn btn-outline-success form-control">Anadir nueva ciudad</a>
+    <h1>Listado de Ciudades</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>Ciudad</th>
+            <th></th>
+
+        </thead>
+        <tbody>
+            {% for City in City %}
+                <tr>
+                    <td>{{ City.ciudad }}</td>
+                    <td><a href="{% url 'core:detailthree' City.id %}" class="btn btn-outline-info"> Detalles </a></td>
+                    <td><a href="{% url 'core:Update3' City.id %}" class="btn btn-outline-warning"> Actualizar</a></td>
+                    <td><a href="{%  url 'core:delete3' City.id %}" class="btn btn-outline-danger">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+{% endblock content %}
